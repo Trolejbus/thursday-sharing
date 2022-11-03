@@ -1,0 +1,23 @@
+.example-row {
+    display: flex;
+    width: 500px;
+    padding: 4px;
+
+    .label {
+        width: 300px;
+        font-weight: bold;
+    }
+
+    &.header {
+        border-bottom: 1px solid black;
+        font-weight: bold;
+    }
+
+    &:nth-child(2n) {
+        background-color: #f0f0f0;
+    }
+
+    &:last-child {
+        border-bottom: 1px solid black;
+    }
+}
