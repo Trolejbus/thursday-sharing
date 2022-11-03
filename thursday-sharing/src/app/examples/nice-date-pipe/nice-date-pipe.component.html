@@ -1,57 +1,66 @@
-<div class="example-row header">
-    <div class="label">Code</div>
-    <div class="pipe-value">Pipe value</div>
-</div>
-<div class="example-row">
-    <div class="label">Past dates</div>
-    <div class="pipe-value"></div>
-</div>
-<div class="example-row">
-    <div class="label">new Date()</div>
-    <div class="pipe-value">{{ currentDate | niceDateTime }}</div>
-</div>
-<div class="example-row">
-    <div class="label">new Date() - 3 minutes</div>
-    <div class="pipe-value">{{ date3MinutesAgo | niceDateTime }}</div>
-</div>
-<div class="example-row">
-    <div class="label">new Date() - 1 hour 3 minutes</div>
-    <div class="pipe-value">{{ date1Hour3MinutesAgo | niceDateTime }}</div>
-</div>
-<div class="example-row">
-    <div class="label">new Date() - 1 day 1 hour</div>
-    <div class="pipe-value">{{ dateYesterday | niceDateTime }}</div>
-</div>
-<div class="example-row">
-    <div class="label">new Date() - 1 month</div>
-    <div class="pipe-value">{{ dateMonthAgo | niceDateTime }}</div>
-</div>
-<div class="example-row">
-    <div class="label">new Date() - 1 year 1 month</div>
-    <div class="pipe-value">{{ dateYearAgo | niceDateTime }}</div>
-</div>
-
-<div class="example-row">
-    <div class="label">Future dates</div>
-    <div class="pipe-value"></div>
-</div>
-<div class="example-row">
-    <div class="label">new Date() + 3 minutes</div>
-    <div class="pipe-value">{{ date3MinutesLater | niceDateTime }}</div>
-</div>
-<div class="example-row">
-    <div class="label">new Date() + 1 hour 3 minutes</div>
-    <div class="pipe-value">{{ date1Hour3MinutesLater | niceDateTime }}</div>
-</div>
-<div class="example-row">
-    <div class="label">new Date() + 1 day 1 hour</div>
-    <div class="pipe-value">{{ dateTommorow | niceDateTime }}</div>
-</div>
-<div class="example-row">
-    <div class="label">new Date() + 1 month</div>
-    <div class="pipe-value">{{ dateMonthAgo | niceDateTime }}</div>
-</div>
-<div class="example-row">
-    <div class="label">new Date() + 1 year 1 month</div>
-    <div class="pipe-value">{{ dateYearLater | niceDateTime }}</div>
+<div class="container">
+    <div class="hint">
+        Allows to display dates in nicer way, than simple format. Dates will be automatically updates over time. Also pipe is working with ChangeDetection.OnPush strategy. Pipe result can be also easly translated to other language (see translate method in NiceDateTimePipe class).
+        <br /><br />
+        This is only example code, and should be tested before production.
+        <br /><br />
+        See code at: <a href="https://github.com/Trolejbus/thursday-sharing" target="_blank">https://github.com/Trolejbus/thursday-sharing</a>
+    </div>
+    <div class="example-row header">
+        <div class="label">Code</div>
+        <div class="pipe-value">Pipe value</div>
+    </div>
+    <div class="example-row">
+        <div class="label">Past dates</div>
+        <div class="pipe-value"></div>
+    </div>
+    <div class="example-row">
+        <div class="label">new Date()</div>
+        <div class="pipe-value">{{ currentDate | niceDateTime }}</div>
+    </div>
+    <div class="example-row">
+        <div class="label">new Date() - 3 minutes</div>
+        <div class="pipe-value">{{ date3MinutesAgo | niceDateTime }}</div>
+    </div>
+    <div class="example-row">
+        <div class="label">new Date() - 1 hour 3 minutes</div>
+        <div class="pipe-value">{{ date1Hour3MinutesAgo | niceDateTime }}</div>
+    </div>
+    <div class="example-row">
+        <div class="label">new Date() - 1 day 1 hour</div>
+        <div class="pipe-value">{{ dateYesterday | niceDateTime }}</div>
+    </div>
+    <div class="example-row">
+        <div class="label">new Date() - 1 month</div>
+        <div class="pipe-value">{{ dateMonthAgo | niceDateTime }}</div>
+    </div>
+    <div class="example-row">
+        <div class="label">new Date() - 1 year 1 month</div>
+        <div class="pipe-value">{{ dateYearAgo | niceDateTime }}</div>
+    </div>
+    
+    <div class="example-row">
+        <div class="label">Future dates</div>
+        <div class="pipe-value"></div>
+    </div>
+    <div class="example-row">
+        <div class="label">new Date() + 3 minutes</div>
+        <div class="pipe-value">{{ date3MinutesLater | niceDateTime }}</div>
+    </div>
+    <div class="example-row">
+        <div class="label">new Date() + 1 hour 3 minutes</div>
+        <div class="pipe-value">{{ date1Hour3MinutesLater | niceDateTime }}</div>
+    </div>
+    <div class="example-row">
+        <div class="label">new Date() + 1 day 1 hour</div>
+        <div class="pipe-value">{{ dateTommorow | niceDateTime }}</div>
+    </div>
+    <div class="example-row">
+        <div class="label">new Date() + 1 month</div>
+        <div class="pipe-value">{{ dateMonthAgo | niceDateTime }}</div>
+    </div>
+    <div class="example-row">
+        <div class="label">new Date() + 1 year 1 month</div>
+        <div class="pipe-value">{{ dateYearLater | niceDateTime }}</div>
+    </div>
 </div>
