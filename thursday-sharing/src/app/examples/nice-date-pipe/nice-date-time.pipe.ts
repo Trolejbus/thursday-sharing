@@ -117,38 +117,48 @@ export class NiceDateTimePipe implements OnDestroy, PipeTransform {
         return new Date(date);
     }
 
-    private pastFormattedDate(difference: number, date: Date): NicelyFormattedDate {
-        if (difference < this.ONE_DAY) {
-            return this.milisecondsToHoursAgo(difference);
-        }
-    
-        if (difference < this.ONE_DAY * 2) {
-            return this.dateToYesterday(date);
-        }
-    
-        if (difference < this.ONE_DAY * 365) {
-            return this.dateToLocalizedDate(date);
-        }
-    
-        return { key: null, date: this.toFormattedDate(date)};
-    }
-    
-    private futureFormattedDate(difference: number, date: Date): NicelyFormattedDate {
-    
-        if (difference < this.ONE_DAY) {
-            return this.milisecondsToHoursTo(difference);
-        }
-    
-        if (difference < this.ONE_DAY * 2) {
-            return this.dateToTomorrow(date);
-        }
-    
-        if (difference < this.ONE_DAY * 365) {
-            return this.dateToLocalizedDate(date);
-        }
-    
-        return { key: null, date: this.toFormattedDate(date)};
-    }
+    function pastFormattedDate(difference: number, date: Date): NicelyFormattedDate {
+		const today = new Date();
+		today.setHours(0, 0, 0, 0);
+		const yesterday = new Date();
+		yesterday.setDate(yesterday.getDate() - 1);
+		yesterday.setHours(0, 0, 0, 0);
+
+		if (date > today) {
+			return milisecondsToHoursAgo(difference);
+		}
+		else if (date > yesterday) {
+			return dateToYesterday(date);
+		}
+
+		if (difference < oneDay * 365) {
+			return dateToLocalizedDate(date);
+		}
+
+		return { key: null, date: toFormattedDate(date)};
+	}
+
+	function futureFormattedDate(difference: number, date: Date): NicelyFormattedDate {
+		const today = new Date();
+		today.setHours(24, 0, 0, 0);
+		const tommorow = new Date();
+		tommorow.setDate(tommorow.getDate() + 1);
+		tommorow.setHours(24, 0, 0, 0);
+
+		if (date < today) {
+			return milisecondsToHoursTo(difference);
+		}
+
+		if (date < tommorow) {
+			return dateToTomorrow(date);
+		}
+
+		if (difference > oneDay * 365) {
+			return dateToLocalizedDate(date);
+		}
+
+		return { key: null, date: toFormattedDate(date)};
+	}
 
     private milisecondsToHoursTo(ms: number): NicelyFormattedDate {
         // tslint:disable-next-line: no-bitwise
