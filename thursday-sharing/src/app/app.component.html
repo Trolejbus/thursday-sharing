@@ -1,1 +1,11 @@
-<router-outlet></router-outlet>
+<div class="container">
+    <div class="side-bar">
+        <ul>
+            <li><a [routerLink]="['nice-date-pipe']">NiceDatePipe (03.11.2022)</a></li>
+            <li><a [routerLink]="['set-loading']">SetLoading pipe (17.11.2022)</a></li>
+        </ul>
+    </div>
+    <div>
+        <router-outlet></router-outlet>
+    </div>
+</div>

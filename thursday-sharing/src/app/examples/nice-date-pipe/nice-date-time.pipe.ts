@@ -117,7 +117,7 @@ export class NiceDateTimePipe implements OnDestroy, PipeTransform {
         return new Date(date);
     }
 
-    function pastFormattedDate(difference: number, date: Date): NicelyFormattedDate {
+    private pastFormattedDate(difference: number, date: Date): NicelyFormattedDate {
 		const today = new Date();
 		today.setHours(0, 0, 0, 0);
 		const yesterday = new Date();
@@ -125,20 +125,20 @@ export class NiceDateTimePipe implements OnDestroy, PipeTransform {
 		yesterday.setHours(0, 0, 0, 0);
 
 		if (date > today) {
-			return milisecondsToHoursAgo(difference);
+			return this.milisecondsToHoursAgo(difference);
 		}
 		else if (date > yesterday) {
-			return dateToYesterday(date);
+			return this.dateToYesterday(date);
 		}
 
-		if (difference < oneDay * 365) {
-			return dateToLocalizedDate(date);
+		if (difference < this.ONE_DAY * 365) {
+			return this.dateToLocalizedDate(date);
 		}
 
-		return { key: null, date: toFormattedDate(date)};
+		return { key: null, date: this.toFormattedDate(date)};
 	}
 
-	function futureFormattedDate(difference: number, date: Date): NicelyFormattedDate {
+	private futureFormattedDate(difference: number, date: Date): NicelyFormattedDate {
 		const today = new Date();
 		today.setHours(24, 0, 0, 0);
 		const tommorow = new Date();
@@ -146,18 +146,18 @@ export class NiceDateTimePipe implements OnDestroy, PipeTransform {
 		tommorow.setHours(24, 0, 0, 0);
 
 		if (date < today) {
-			return milisecondsToHoursTo(difference);
+			return this.milisecondsToHoursTo(difference);
 		}
 
 		if (date < tommorow) {
-			return dateToTomorrow(date);
+			return this.dateToTomorrow(date);
 		}
 
-		if (difference > oneDay * 365) {
-			return dateToLocalizedDate(date);
+		if (difference > this.ONE_DAY * 365) {
+			return this.dateToLocalizedDate(date);
 		}
 
-		return { key: null, date: toFormattedDate(date)};
+		return { key: null, date: this.toFormattedDate(date)};
 	}
 
     private milisecondsToHoursTo(ms: number): NicelyFormattedDate {

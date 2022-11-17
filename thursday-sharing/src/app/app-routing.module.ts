@@ -3,6 +3,10 @@ import { RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
   {
+    path: 'set-loading',
+    loadChildren: () => import('./examples/set-loading/set-loading.module').then(m => m.SetLoadingModule),
+  },
+  {
     path: 'nice-date-pipe',
     loadChildren: () => import('./examples/nice-date-pipe/nice-date-pipe.module').then(m => m.NiceDatePipeModule),
   },

@@ -1,0 +1,43 @@
+<div class="container" *ngIf="vm$ | async as vm">
+    <div class="hint">
+        This is rxjs operator, which 
+        <br /><br />
+        This is only example code, and should be tested before production.
+        <br /><br />
+        See code at: <a href="https://github.com/Trolejbus/thursday-sharing/tree/main/thursday-sharing/src/app/examples/set-loading" target="_blank">github</a>
+    </div>
+
+    <code ngNonBindable style="white-space: pre;">
+        <pre>
+public callApi(): void &#123;
+    of(null).pipe(
+    delay(3000),
+    showLoading(),
+    ).subscribe(() => &#123;
+    this.incrementSubject$.next(this.incrementSubject$.value + 1);
+    });
+}
+
+public callApiWithText(): void &#123;
+    of(null).pipe(
+        delay(3000),
+        showLoading('Loading...'),
+    ).subscribe(() => &#123;
+        this.incrementSubject$.next(this.incrementSubject$.value + 1);
+    });
+}
+        </pre>
+    </code>
+    
+    <div>
+        Increment: {{ vm.increment }}
+    </div>
+
+    <button (click)="callApi()" [disabled]="vm.isLoading.isLoading">Trigger load</button>
+    <button (click)="callApiWithText()" [disabled]="vm.isLoading.isLoading">Trigger load with text</button>
+
+    <div *ngIf="vm.isLoading.isLoading">
+        Loading
+        <span *ngIf="vm.isLoading.text != null">with text: {{vm.isLoading.text}}</span>
+    </div>
+</div>
