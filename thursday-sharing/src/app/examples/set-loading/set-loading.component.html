@@ -11,8 +11,8 @@
         <pre>
 public callApi(): void &#123;
     of(null).pipe(
-    delay(3000),
-    showLoading(),
+        delay(3000),
+        showLoading(),
     ).subscribe(() => &#123;
     this.incrementSubject$.next(this.incrementSubject$.value + 1);
     });
